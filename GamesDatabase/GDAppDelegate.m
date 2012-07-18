@@ -20,6 +20,7 @@
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
 @synthesize navigationController = _navigationController;
 
+#define SETTINGS_FIRST_RUN  @"firstRun"
 #define JSON_KEY_MAIN       @"games"
 #define JSON_KEY_PLATFORM   @"platform"
 #define JSON_KEY_STORY      @"story"
@@ -89,43 +90,58 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
-    //Load the json and write the database
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Data" ofType:@"json"];
+    //Load the json and write the database (only the first time)
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     
-    NSError *errorParsing;
-    NSDictionary *dataToParse = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath] options:NSJSONReadingMutableContainers error:&errorParsing];
+    //To reload the data without deleting the app:
+    //[userDefaults setBool:FALSE forKey:SETTINGS_FIRST_RUN];
     
-    if (dataToParse != nil){
+    if (![userDefaults objectForKey:SETTINGS_FIRST_RUN]){
+    
+        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Data" ofType:@"json"];
         
-        //JSON parsed ok, save it in database
-        NSManagedObjectContext *context = [self managedObjectContext];
+        NSError *errorParsing;
+        NSDictionary *dataToParse = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath] options:NSJSONReadingMutableContainers error:&errorParsing];
         
-        //Delete all previous content (this will avoid duplicate content if there was an error)
-        NSFetchRequest *fetch = [[[NSFetchRequest alloc] init] autorelease];
-        [fetch setEntity:[NSEntityDescription entityForName:@"GameInfo" inManagedObjectContext:context]];
-        NSArray *result = [context executeFetchRequest:fetch error:nil];
-        for (id gameItem in result){
-            [context deleteObject:gameItem];
-        }
-        
-        //For every element, create a gameInfo object
-        for (NSDictionary *gameParsed in [dataToParse objectForKey:JSON_KEY_MAIN])
-        {
-            GameInfo *gameInfo = [NSEntityDescription insertNewObjectForEntityForName:@"GameInfo" inManagedObjectContext:context];
-            gameInfo.name = [gameParsed objectForKey:JSON_KEY_NAME];
-            gameInfo.platform = [gameParsed objectForKey:JSON_KEY_PLATFORM];
-            gameInfo.story = [gameParsed objectForKey:JSON_KEY_STORY];
-            gameInfo.imgURL = [gameParsed objectForKey:JSON_KEY_URL];
-            gameInfo.rate = [NSNumber numberWithInt:[[gameParsed objectForKey:JSON_KEY_RATE] intValue]];
+        if (dataToParse != nil){
             
-            NSError *error;
-            if (![context save:&error]) {
-                NSLog(@"Problem saving: %@", [error localizedDescription]);
+            //JSON parsed ok, save it in database
+            NSManagedObjectContext *context = [self managedObjectContext];
+            
+            //Delete all previous content (this will avoid duplicate content if there was an error)
+            NSFetchRequest *fetch = [[[NSFetchRequest alloc] init] autorelease];
+            [fetch setEntity:[NSEntityDescription entityForName:@"GameInfo" inManagedObjectContext:context]];
+            NSArray *result = [context executeFetchRequest:fetch error:nil];
+            for (id gameItem in result){
+                [context deleteObject:gameItem];
             }
+            
+            //For every element, create a gameInfo object
+            for (NSDictionary *gameParsed in [dataToParse objectForKey:JSON_KEY_MAIN])
+            {
+                GameInfo *gameInfo = [NSEntityDescription insertNewObjectForEntityForName:@"GameInfo" inManagedObjectContext:context];
+                gameInfo.name = [gameParsed objectForKey:JSON_KEY_NAME];
+                gameInfo.platform = [gameParsed objectForKey:JSON_KEY_PLATFORM];
+                gameInfo.story = [gameParsed objectForKey:JSON_KEY_STORY];
+                gameInfo.imgURL = [gameParsed objectForKey:JSON_KEY_URL];
+                gameInfo.rate = [NSNumber numberWithInt:[[gameParsed objectForKey:JSON_KEY_RATE] intValue]];
+                
+                NSError *error;
+                if (![context save:&error]) {
+                    NSLog(@"Problem saving: %@", [error localizedDescription]);
+                }
+                else{
+                    //Everything went correct
+                    [userDefaults setBool:TRUE forKey:SETTINGS_FIRST_RUN];
+                    [userDefaults synchronize];
+                }
+            }
+            
+            
         }
-    }
-    else{
-        NSLog(@"Error parsing JSON:%@", [errorParsing localizedDescription]);
+        else{
+            NSLog(@"Error parsing JSON:%@", [errorParsing localizedDescription]);
+        }
     }
 
     //Init the app
