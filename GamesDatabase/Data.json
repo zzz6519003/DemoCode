@@ -1,0 +1,84 @@
+{
+        "games": [
+                 {
+                 "id": 0,
+                 "name": "Super Mario World",
+                 "story": "After saving the Mushroom Kingdom, brothers Mario and Luigi agree to take a vacation to a place called Dinosaur Land, where there are many types of dinosaurs. However, while resting in the beach, Princess Toadstool disappears.",
+                 "platform": "Super Nintendo",
+                 "rate": "5",
+                 "imgURL":"http://upload.wikimedia.org/wikipedia/en/3/32/Super_Mario_World_Coverart.png" 
+                 },
+                 {
+                 "id": 1,
+                 "name": "Earthworm Jim",
+                 "story": "Jim, a normal earthworm, has a special super suit fall from the sky and allows him to operate much like a human, with his worm-part acting as a head, and the suit acting as arms, body, and legs.",
+                 "platform": "Mega Drive",
+                 "rate": "4",
+                  "imgURL":"http://upload.wikimedia.org/wikipedia/en/0/08/Earthworm_Jim_%28EUR%29.PNG"
+                 },
+                 {
+                 "id": 2,
+                 "name": "Golden Axe 2",
+                 "story": "The three playable characters from the first Golden Axe, Ax Battler, Tyris Flare, and Gilius Thunderhead, return in Golden Axe II to save the people of the land by defeating the new evil clan, led by Dark Guld, and reclaim the Golden Axe, which is in his possession",
+                 "platform": "Mega Drive",
+                 "rate": "3",
+                   "imgURL":"http://upload.wikimedia.org/wikipedia/en/6/6d/Golden_Axe_II_Coverart.png" 
+                 },
+                 {
+                 "id": 3,
+                 "name": "Megaman 7",
+                 "story": "Taking place in the 21st century (the ambiguous year 20XX), Mega Man 7 begins directly after the events of Mega Man 6. Thanks to the efforts of Mega Man and his friends, Dr. Wily was finally brought to justice. However, Wily had always known that he might be imprisoned one day, and so he had constructed four backup Robot Masters in a hidden laboratory.",
+                 "platform": "Super Nintendo",
+                 "rate": "3",
+                   "imgURL":"http://upload.wikimedia.org/wikipedia/en/2/27/Mega_Man_7_Coverart.jpg" 
+                 },
+                 {
+                 "id": 4,
+                 "name": "Super Mario Kart",
+                 "story": "Super Mario Kart is a kart-racing game featuring several single and multiplayer modes. During the game, players take control of one of a selection of Mario franchise characters and drive karts around tracks with Mario series theme",
+                 "platform": "Super Nintendo",
+                 "rate": "4",
+                   "imgURL":"http://upload.wikimedia.org/wikipedia/en/3/38/Supermariokart_box.JPG" 
+                 },
+                 {
+                 "id": 5,
+                 "name": "Chrono Trigger",
+                 "story": "Chrono Trigger features standard role-playing video game gameplay with several innovations. The player controls the protagonist and his companions in the game's two-dimensional fictional world, consisting of various forests, cities, and dungeons.",
+                 "platform": "Super Nintendo",
+                 "rate": "4",
+                 "imgURL":"http://upload.wikimedia.org/wikipedia/en/a/a7/Chrono_Trigger.jpg" 
+                 },
+                 {
+                 "id": 6,
+                 "name": "Secret of Mana",
+                 "story": "Disobeying their Elder's instructions, three boys from the small Potos village trespass into a local waterfall where a treasure is said to be kept. One of the boys, the game's protagonist (named Randi in the original Japanese version), stumbles and falls into the lake, where he finds a rusty sword embedded in a stone.",
+                 "platform": "Super Nintendo",
+                 "rate": "2",
+                 "imgURL":"http://upload.wikimedia.org/wikipedia/en/b/b7/Secret_of_Mana_Box.jpg"
+                 },
+                  {
+                  "id": 7,
+                  "name": "Super Mario World 2",
+                  "story": "While a stork carries two babies across the sea, the evil Magikoopa Kamek emerges, and attempts to steal both of the babies. Kamek manages to grab Baby Luigi, but Baby Mario falls onto an island in the middle of the sea, called Yoshi's Island, home to all Yoshis.",
+                  "platform": "Super Nintendo",
+                  "rate": "3",
+                  "imgURL":"http://upload.wikimedia.org/wikipedia/en/6/6e/Yisland_box.jpg" 
+                  },
+                  {
+                  "id": 8,
+                  "name": "Sonic the Hedgehog",
+                  "story": "The game plays as a 2D sidescrolling platformer. The gameplay centers around Sonic's ability to run at high speed through levels that include springs, slopes, high falls and loop-de-loops.",
+                  "platform": "Mega Drive",
+                  "rate": "4",
+                  "imgURL":"http://upload.wikimedia.org/wikipedia/en/e/e9/Sonic1_box_usa.jpg" 
+                  },
+                  {
+                  "id": 9,
+                  "name": "Secret of Evermore",
+                  "story": "Secret of Evermore takes many of its interface and gameplay aspects from the unrelated Japanese Square title Secret of Mana. The game mostly consists of an aerial view setting, in which the boy and his dog negotiate the terrain and fend off hostile creatures. If the boy is currently selected as the player character, his dog will be controlled by the artificial intelligence, and vice-versa.",
+                  "platform": "Super Nintendo",
+                  "rate": "5",
+                  "imgURL":"http://upload.wikimedia.org/wikipedia/en/9/99/Secret_of_Evermore.jpg"
+                  }
+                 ]
+}
