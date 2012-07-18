@@ -40,7 +40,7 @@
 }
 
 //Handling custom schema.
-//The URL can be called from Safari or from any other app
+//The URL can be called from Safari or from any other app to change the rate
 //For example:
 //gamesdb://name=Super%20Mario&rate=3
 //gamesdb://name=Mega&rate=5
@@ -93,7 +93,7 @@
     //Load the json and write the database (only the first time)
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     
-    //To reload the data without deleting the app:
+    //To reload the data without deleting the app, uncomment:
     //[userDefaults setBool:FALSE forKey:SETTINGS_FIRST_RUN];
     
     if (![userDefaults objectForKey:SETTINGS_FIRST_RUN]){

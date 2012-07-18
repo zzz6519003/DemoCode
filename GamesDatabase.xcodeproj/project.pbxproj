@@ -17,6 +17,7 @@
 		B811C41315B56A100018FEDD /* GamesDatabase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B811C41115B56A100018FEDD /* GamesDatabase.xcdatamodeld */; };
 		B811C42B15B56C390018FEDD /* GDGamesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B811C42915B56C390018FEDD /* GDGamesListViewController.m */; };
 		B811C42C15B56C390018FEDD /* GDGamesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B811C42A15B56C390018FEDD /* GDGamesListViewController.xib */; };
+		B882095515B6E0DA00F29727 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B882095415B6E0DA00F29727 /* Localizable.strings */; };
 		B8847F7515B570DD00E2B9CD /* Data.json in Resources */ = {isa = PBXBuildFile; fileRef = B8847F7415B570DD00E2B9CD /* Data.json */; };
 		B8847F7915B5747300E2B9CD /* GameInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B8847F7815B5747300E2B9CD /* GameInfo.m */; };
 		B8847F9F15B5993D00E2B9CD /* GDGameDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8847F9D15B5993D00E2B9CD /* GDGameDetailsViewController.m */; };
@@ -39,6 +40,7 @@
 		B811C42815B56C390018FEDD /* GDGamesListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDGamesListViewController.h; sourceTree = "<group>"; };
 		B811C42915B56C390018FEDD /* GDGamesListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDGamesListViewController.m; sourceTree = "<group>"; };
 		B811C42A15B56C390018FEDD /* GDGamesListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GDGamesListViewController.xib; sourceTree = "<group>"; };
+		B882095415B6E0DA00F29727 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		B8847F7415B570DD00E2B9CD /* Data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Data.json; sourceTree = "<group>"; };
 		B8847F7715B5747300E2B9CD /* GameInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameInfo.h; sourceTree = "<group>"; };
 		B8847F7815B5747300E2B9CD /* GameInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameInfo.m; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				B811C40815B56A100018FEDD /* InfoPlist.strings */,
 				B811C40B15B56A100018FEDD /* main.m */,
 				B811C40D15B56A100018FEDD /* GamesDatabase-Prefix.pch */,
+				B882095415B6E0DA00F29727 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 				B811C42C15B56C390018FEDD /* GDGamesListViewController.xib in Resources */,
 				B8847F7515B570DD00E2B9CD /* Data.json in Resources */,
 				B8847FA015B5993D00E2B9CD /* GDGameDetailsViewController.xib in Resources */,
+				B882095515B6E0DA00F29727 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

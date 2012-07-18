@@ -51,12 +51,12 @@
         self.queue = [[[NSOperationQueue alloc] init] autorelease];
         self.imgsDownloaded = [[[NSMutableArray alloc] init] autorelease];
         
-        UIBarButtonItem *sortButton = [[UIBarButtonItem alloc] initWithTitle:@"Sort By" style:UIBarButtonItemStylePlain
+        UIBarButtonItem *sortButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Sort By", @"Sort By") style:UIBarButtonItemStylePlain
                                                                          target:self action:@selector(showSortByActionSheet:)];      
         self.navigationItem.rightBarButtonItem = sortButton;
         [sortButton release];
         
-        self.title = @"Games Wall";
+        self.title = NSLocalizedString(@"Games Wall", @"Games Wall");
     }
     return self;
 }
@@ -143,7 +143,7 @@
 //Show the action sheet when the user press in SortBy
 -(IBAction)showSortByActionSheet:(id)sender {
    
-    UIActionSheet *sortBySelection = [[UIActionSheet alloc] initWithTitle:@"Sort By" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Rate",@"Name", nil];
+    UIActionSheet *sortBySelection = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Sort By", @"Sort By") delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Rate",@"Name", nil];
     sortBySelection.actionSheetStyle = UIActionSheetStyleBlackOpaque;
     [sortBySelection showInView:self.view];
     [sortBySelection release];

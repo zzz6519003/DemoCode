@@ -45,7 +45,7 @@
         // Custom initialization
         self.queue = [[[NSOperationQueue alloc] init] autorelease];
         
-        self.title = @"Details";
+        self.title = NSLocalizedString(@"Details", @"Details");
     }
     return self;
 }
