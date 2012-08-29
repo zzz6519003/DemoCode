@@ -5,6 +5,10 @@
 //  Created by Antonio MG on 7/17/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
+// This is the ViewController of the main view. It will display the data of the model in the view, following the MVC design pattern.
+// It includes a search bar, and a Sort By Name or Rate functionality.
+// When the user touchs a cell, it will move to the details screen.
+
 
 #import "GDGamesListViewController.h"
 #import "GDGameDetailsViewController.h"

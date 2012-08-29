@@ -5,6 +5,8 @@
 //  Created by Antonio MG on 7/17/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
+// Details ViewController that shows the details of the game selected in the view.
+// The image is downloaded in background and printed in the main thread, in order to not block the execution of the app
 
 #import "GDGameDetailsViewController.h"
 

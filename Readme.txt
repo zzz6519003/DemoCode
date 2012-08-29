@@ -9,6 +9,7 @@ The app contains a main view where all the games are displayed, with a search ba
 
 Some of the features already included:
 
+- Model View Controller pattern.
 - Core Data to save the data.
 - JSON file containing the initial data, and NSJSONSerialization to parse it.
 - Custom schema, so the app has an entry point every  time Safari or other app call the URL: gamesdb://
@@ -20,7 +21,8 @@ Some of the features already included:
 
 The code is clean of warnings and memory leaks.
 
-It has been tested with Intruments ()
+It has been tested with Intruments (Leaks and Allocations)
+
 ================================================================================
 BUILD REQUIREMENTS:
 
@@ -37,3 +39,6 @@ DEVICE:
 iPhone
 
 ================================================================================
+
+Antonio Martinez  - August 2012
+tonio.mg@gmail.com
