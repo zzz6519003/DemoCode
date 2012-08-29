@@ -44,7 +44,6 @@
 //For example:
 //gamesdb://name=Super%20Mario&rate=3
 //gamesdb://name=Mega&rate=5
-
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
     //Read the URL and the parameters
@@ -65,7 +64,8 @@
         rate = [[rateParameter objectAtIndex:1] intValue];
         
         if (rate >= 0 && rate<= 5){
-            //Replace in the database
+            
+            //Replace in the core data model
             NSManagedObjectContext *context = [self managedObjectContext];
             
             NSFetchRequest *fetch = [[NSFetchRequest alloc] init];
@@ -100,6 +100,7 @@
     
         NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Data" ofType:@"json"];
         
+        //Parsing the json
         NSError *errorParsing;
         NSDictionary *dataToParse = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath] options:NSJSONReadingMutableContainers error:&errorParsing];
         
@@ -108,7 +109,7 @@
             //JSON parsed ok, save it in database
             NSManagedObjectContext *context = [self managedObjectContext];
             
-            //Delete all previous content (this will avoid duplicate content if there was an error)
+            //Delete all previous content in database (this will avoid duplicate content if there was an error during writing or something has changed)
             NSFetchRequest *fetch = [[[NSFetchRequest alloc] init] autorelease];
             [fetch setEntity:[NSEntityDescription entityForName:@"GameInfo" inManagedObjectContext:context]];
             NSArray *result = [context executeFetchRequest:fetch error:nil];
@@ -117,6 +118,7 @@
             }
             
             //For every element, create a gameInfo object
+            int gamesSavedCounter = 0;
             for (NSDictionary *gameParsed in [dataToParse objectForKey:JSON_KEY_MAIN])
             {
                 GameInfo *gameInfo = [NSEntityDescription insertNewObjectForEntityForName:@"GameInfo" inManagedObjectContext:context];
@@ -131,10 +133,15 @@
                     NSLog(@"Problem saving: %@", [error localizedDescription]);
                 }
                 else{
-                    //Everything went correct
-                    [userDefaults setBool:TRUE forKey:SETTINGS_FIRST_RUN];
-                    [userDefaults synchronize];
+                    gamesSavedCounter++;
                 }
+            }
+            
+            //Check if all the elements were saved, if not, next run it will try to write again
+            if (gamesSavedCounter == [[dataToParse objectForKey:JSON_KEY_MAIN] count])
+            {
+                [userDefaults setBool:TRUE forKey:SETTINGS_FIRST_RUN];
+                [userDefaults synchronize];
             }
             
             
@@ -146,8 +153,8 @@
 
     //Init the app
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+    
     // Override point for customization after application launch.
-
     GDGamesListViewController *mainViewController = [[[GDGamesListViewController alloc] initWithNibName:@"GDGamesListViewController" bundle:nil] autorelease];
     self.navigationController = [[[UINavigationController alloc] initWithRootViewController:mainViewController] autorelease];
     mainViewController.managedObjectContext = self.managedObjectContext;
@@ -242,29 +249,6 @@
     NSError *error = nil;
     __persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
     if (![__persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
-        /*
-         Replace this implementation with code to handle the error appropriately.
-         
-         abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
-         
-         Typical reasons for an error here include:
-         * The persistent store is not accessible;
-         * The schema for the persistent store is incompatible with current managed object model.
-         Check the error message to determine what the actual problem was.
-         
-         
-         If the persistent store is not accessible, there is typically something wrong with the file path. Often, a file URL is pointing into the application's resources directory instead of a writeable directory.
-         
-         If you encounter schema incompatibility errors during development, you can reduce their frequency by:
-         * Simply deleting the existing store:
-         [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil]
-         
-         * Performing automatic lightweight migration by passing the following dictionary as the options parameter: 
-         [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption, [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
-         
-         Lightweight migration will only work for a limited set of schema changes; consult "Core Data Model Versioning and Data Migration Programming Guide" for details.
-         
-         */
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }    

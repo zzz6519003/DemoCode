@@ -130,6 +130,8 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    //the user has selected a cell, look for the info in the gamesArray and open the details View
+    
     GameInfo *info = [self.gamesFiltered objectAtIndex:indexPath.row];
 
     GDGameDetailsViewController *detailsView = [[GDGameDetailsViewController alloc] initWithNibName:@"GDGameDetailsViewController" bundle:nil];
@@ -140,6 +142,7 @@
 }
 
 #pragma mark IB Actions
+
 //Show the action sheet when the user press in SortBy
 -(IBAction)showSortByActionSheet:(id)sender {
    
@@ -207,9 +210,10 @@
     
 #pragma mark Sort methods   
 
+//sort the array of games depending on the user selection and display it
 -(void)sortArrayBy:(NSString *)field{
     
-    //Reorder the array by rate
+    //Reorder the array by rate or name
     BOOL isAscending;
     
     if ([field isEqualToString:@"rate"]){
@@ -222,6 +226,7 @@
         isAscending = false;
     }
     
+    //Create the descriptor
     NSSortDescriptor *sortDescriptor;
     sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:field
                                                   ascending:isAscending] autorelease];
@@ -230,6 +235,7 @@
     sortedArray = [self.gamesFiltered sortedArrayUsingDescriptors:sortDescriptors];    
     self.gamesFiltered = [[[NSMutableArray alloc] initWithArray:sortedArray] autorelease];
     
+    //Reload the data in the view
     [self.gamesTable reloadData];
 }
 

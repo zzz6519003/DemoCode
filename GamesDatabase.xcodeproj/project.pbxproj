@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9BA078DF15EE123C008033EC /* Readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9BA078DE15EE123C008033EC /* Readme.txt */; };
 		B811C3FE15B56A100018FEDD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B811C3FD15B56A100018FEDD /* UIKit.framework */; };
 		B811C40015B56A100018FEDD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B811C3FF15B56A100018FEDD /* Foundation.framework */; };
 		B811C40215B56A100018FEDD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B811C40115B56A100018FEDD /* CoreGraphics.framework */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9BA078DE15EE123C008033EC /* Readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Readme.txt; sourceTree = "<group>"; };
 		B811C3F915B56A100018FEDD /* GamesDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GamesDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B811C3FD15B56A100018FEDD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B811C3FF15B56A100018FEDD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -67,6 +69,7 @@
 		B811C3EE15B56A100018FEDD = {
 			isa = PBXGroup;
 			children = (
+				9BA078DE15EE123C008033EC /* Readme.txt */,
 				B811C40515B56A100018FEDD /* GamesDatabase */,
 				B811C3FC15B56A100018FEDD /* Frameworks */,
 				B811C3FA15B56A100018FEDD /* Products */,
@@ -204,6 +207,7 @@
 				B8847F7515B570DD00E2B9CD /* Data.json in Resources */,
 				B8847FA015B5993D00E2B9CD /* GDGameDetailsViewController.xib in Resources */,
 				B882095515B6E0DA00F29727 /* Localizable.strings in Resources */,
+				9BA078DF15EE123C008033EC /* Readme.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

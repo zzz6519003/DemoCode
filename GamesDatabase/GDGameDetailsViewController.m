@@ -43,6 +43,8 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        
+        //Init the operation queue
         self.queue = [[[NSOperationQueue alloc] init] autorelease];
         
         self.title = NSLocalizedString(@"Details", @"Details");
@@ -54,7 +56,7 @@
 {
     [super viewDidLoad];
     
-    //Put the data in the screen
+    //Draw the data in the screen
     
     //Load the image in background mode
     NSBlockOperation *downloadImgBlock = [NSBlockOperation blockOperationWithBlock:^(void){
